@@ -63,16 +63,17 @@ vector<string> le_arquivo(){
     int qnt_palavras;
     arquivo >> qnt_palavras;
 
-    cout << " O ARQUIVO POSSUI " << qnt_palavras << endl;
+    //cout << " O ARQUIVO POSSUI " << qnt_palavras << endl;
 
        for(int i=0;i<qnt_palavras;i++){
 
         arquivo >> palavra_lida;
         palavras_do_arquivo.push_back(palavra_lida);
 
-        cout << "LINHA " << i << " palavra " << palavra_lida << endl;
+        //cout << "LINHA " << i << " palavra " << palavra_lida << endl;
         }
 
+        arquivo.close();
         return palavras_do_arquivo;
 
 
