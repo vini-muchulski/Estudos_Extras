@@ -1,4 +1,6 @@
-#include<iostream>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 
@@ -25,12 +27,13 @@ int main(){
         num_tentativas = 5;
     }
     
-
-    const int numero_sec = 42;
+    srand(time(NULL));
+    const int numero_sec = rand() % 100;
+    //cout << "O numero secreto eh "<< numero_sec << "." << endl;
     int tentativas = 1;
+    
 
-
-    //cout << "O numero secreto eh "<< numero_sec << "!" << endl;
+    
     int chute;
     cout << "Tentativa " << tentativas << " de "<< num_tentativas << endl;
     cout << "Digite o valor do seu chute: " << endl;
@@ -46,9 +49,10 @@ int main(){
 
     double pontos = 1000.0;
 
-    while(nao_acertou){
+    while(nao_acertou && tentativas<num_tentativas){
 
         acertou = numero_sec == chute;
+        nao_acertou = chute != numero_sec;
         
         
         double pontos_perd = abs(chute - numero_sec)/2.0;
@@ -69,16 +73,34 @@ int main(){
         }
 
         tentativas++;
+        cout << " " << endl;
         cout << "Tentativa " << tentativas << " de "<< num_tentativas << endl;
+        cout << " " << endl;
         cout << "Digite outro chute: " << endl;
         cin >> chute;
         cout << "O chute foi " << chute << endl;
+
+        if (acertou){
+            cout << "Voce acertou o numero secreto em "<< tentativas <<" tentativas!" << endl;
+            break;
+        }
             
         }
-
-        cout.precision(2);
-        cout << fixed;
-        cout << "Sua pontuacao foi de " << pontos << " pontos!" << endl;
+        cout << " " << endl;
         cout << "FIM DE JOGO! " << endl;
+
+        acertou = numero_sec == chute;
+        nao_acertou = chute != numero_sec;
+        
+
+        if(nao_acertou){
+            cout << "Voce nao conseguiu!" << endl;
+        }
+        else{
+            cout << "Voce conseguiu!!" << endl;
+            cout.precision(2);
+            cout << fixed;
+            cout << "Sua pontuacao foi de " << pontos << " pontos!" << endl;
+            }
 
 }
