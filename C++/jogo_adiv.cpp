@@ -7,12 +7,32 @@ int main(){
     cout << "----- Bem vindo ao jogo ----" << endl;
     cout << "****************************" << endl;
 
-    const int numero_sec = 27;
-    int tentativas = 0;
+    cout << "Digite o nivel de dificuldade: " << endl;
+    cout << "FACIL (F), MEDIO(M) ou DIFICIL(D) " << endl;
+
+    char dificuldade;
+    int num_tentativas;
+
+    cin >> dificuldade;
+
+    if (dificuldade == 'F'){
+        num_tentativas = 15;
+    }
+    if (dificuldade == 'M'){
+        num_tentativas = 10;
+    }
+    if (dificuldade == 'D'){
+        num_tentativas = 5;
+    }
+    
+
+    const int numero_sec = 42;
+    int tentativas = 1;
+
 
     //cout << "O numero secreto eh "<< numero_sec << "!" << endl;
     int chute;
-    cout << "Tentativa " << tentativas << endl;
+    cout << "Tentativa " << tentativas << " de "<< num_tentativas << endl;
     cout << "Digite o valor do seu chute: " << endl;
     cin >> chute;
     cout << "O chute foi " << chute << endl;
@@ -24,12 +44,15 @@ int main(){
             cout << "Voce acertou o numero secreto! " << endl;
         }
 
+    double pontos = 1000.0;
 
     while(nao_acertou){
 
         acertou = numero_sec == chute;
-        tentativas++;
         
+        
+        double pontos_perd = abs(chute - numero_sec)/2.0;
+        pontos = pontos - pontos_perd;
 
         if (acertou){
             cout << "Voce acertou o numero secreto em "<< tentativas <<" tentativas!" << endl;
@@ -45,15 +68,17 @@ int main(){
             }
         }
 
+        tentativas++;
+        cout << "Tentativa " << tentativas << " de "<< num_tentativas << endl;
         cout << "Digite outro chute: " << endl;
         cin >> chute;
         cout << "O chute foi " << chute << endl;
-        cout << "Tentativa " << tentativas << endl;
             
         }
 
-        
-    
+        cout.precision(2);
+        cout << fixed;
+        cout << "Sua pontuacao foi de " << pontos << " pontos!" << endl;
+        cout << "FIM DE JOGO! " << endl;
 
-    
 }
