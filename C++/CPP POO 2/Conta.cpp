@@ -3,6 +3,15 @@
 
 // arquivo de implementacao
 
+Conta::Conta(std::string numero, std::string nomeTitular,std::string cpf){
+    this->numero = numero;
+    this->nomeTitular = nomeTitular;
+    this->cpf = cpf;
+    this->saldo = 0;
+
+}
+
+
 void Conta::sacar(float valor_Sacar){
 
     if(valor_Sacar <0){
@@ -10,7 +19,6 @@ void Conta::sacar(float valor_Sacar){
         return;
 
     }
-
 }
 
 void Conta::depositar(float valor_Depositar){
@@ -21,4 +29,13 @@ void Conta::depositar(float valor_Depositar){
 
     saldo +=valor_Depositar;
     
+}
+
+float Conta::getSaldo(){
+    return saldo;
+}
+
+void Conta::definirNomeTitular(std::string nome)
+{
+    nomeTitular = nome;
 }
