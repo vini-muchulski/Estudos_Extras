@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+    color: aliceblue;
+}
+strong {
+    color:  #03C988;
+}
+
+span{
+    color:  #03C988;
+    border: 1px solid  #03C988;
+    padding: 10px;
+}
