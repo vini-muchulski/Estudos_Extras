@@ -8,11 +8,15 @@ const lista = document.getElementById("lista")
 delta.addEventListener("submit", function (evento){
     evento.preventDefault()
 
-    const nomeItem = evento.target.elements['nome'].value
-    const quantidade = evento.target.elements['quantidade'].value
-    
+    const nomeItem = evento.target.elements['nome']
+    const quantidade = evento.target.elements['quantidade']
 
-    geraElemento(nomeItem,quantidade)
+    geraElemento(nomeItem.value,quantidade.value)
+
+
+    nomeItem.value = ""
+    quantidade.value = ""
+    
 })
 
 function geraElemento(nome,quantidade){
@@ -31,6 +35,10 @@ function geraElemento(nome,quantidade){
     
 
     lista.appendChild(novoItem)
+
+
+    localStorage.setItem("nome", nome)
+    localStorage.setItem("quantidade", quantidade)
 
 
 }
