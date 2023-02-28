@@ -3,6 +3,14 @@
 const delta = document.getElementById("novoItem");
 const lista = document.getElementById("lista")
 
+const itens = JSON.parse(localStorage.getItem("itens")) || []
+
+
+
+itens.forEach( (elemento) => {
+    console.log(elemento.nome,elemento.quantidade)
+})
+
 //console.log(delta);
 
 delta.addEventListener("submit", function (evento){
@@ -36,9 +44,17 @@ function geraElemento(nome,quantidade){
 
     lista.appendChild(novoItem)
 
+    const itemAtual = {
+        "nome": nome,
+        "quantidade": quantidade
+    }
 
-    localStorage.setItem("nome", nome)
-    localStorage.setItem("quantidade", quantidade)
+
+    itens.push(itemAtual)
+
+    localStorage.setItem("itens",JSON.stringify(itens))
+    
 
 
 }
+
