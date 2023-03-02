@@ -9,3 +9,5 @@ elemento_menor_valor.innerHTML = menor_valor
 
 const elemento_maior_valor = document.getElementById("maiorValor")
 elemento_maior_valor.innerHTML = maior_valor
+
+
