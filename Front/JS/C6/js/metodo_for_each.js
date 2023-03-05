@@ -1,6 +1,7 @@
 const elemento_para_adicionar_livros = document.getElementById('livros')
 
 function exibir_livros(lista_de_livros){
+  elemento_para_adicionar_livros.innerHTML = ""
     lista_de_livros.forEach(livro => {
         elemento_para_adicionar_livros.innerHTML +=`
         <div class="livro">
