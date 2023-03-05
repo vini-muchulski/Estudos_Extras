@@ -14,7 +14,7 @@ function exibir_livros(lista_de_livros){
       </h2>
 
       <p class="livro__descricao">${livro.autor}</p>
-      <p class="livro__preco" id="preco">R$ ${livro.preco}</p>
+      <p class="livro__preco" id="preco">R$ ${livro.preco.toFixed(2)}</p>
 
       <div class="tags">
         <span class="tag">Categorias Front End</span>
