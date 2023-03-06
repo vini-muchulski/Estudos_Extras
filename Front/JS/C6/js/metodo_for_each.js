@@ -3,10 +3,12 @@ const elemento_para_adicionar_livros = document.getElementById('livros')
 function exibir_livros(lista_de_livros){
   elemento_para_adicionar_livros.innerHTML = ""
     lista_de_livros.forEach(livro => {
+      let disponibilidade = verificar_disponibilidade(livro)
+
         elemento_para_adicionar_livros.innerHTML +=`
         <div class="livro">
 
-      <img class="livro__imagens" 
+      <img class="${disponibilidade}" 
       src="${livro.imagem}" 
       alt="${livro.alt}" />
 
@@ -24,4 +26,12 @@ function exibir_livros(lista_de_livros){
         `
     });
 
+}
+
+function verificar_disponibilidade(livro){
+  if (livro.quantidade > 0){
+    return 'livro__imagens'
+  } else{
+    return 'livro__imagens indisponivel'
+  }
 }

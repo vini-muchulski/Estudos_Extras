@@ -7,6 +7,6 @@ function filtrar_livros_de_front(){
     const categoria = elementBTN.value
 
 
-    let livros_filtrados = livros.filter(livro => livro.categoria == categoria)
+    let livros_filtrados = categoria =='disponivel' ? livros.filter(livro => livro.quantidade > 0) : livros.filter(livro => livro.categoria == categoria)
     exibir_livros(livros_filtrados)
 }
