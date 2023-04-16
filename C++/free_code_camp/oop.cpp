@@ -35,6 +35,10 @@ void se_apresente(){
     cout << "Funcionario \nNome: " << Nome <<" - Empresa: "<< Empresa <<  " - Idade: " << Idade << endl;;
 }
 
+virtual void trabalhar(){
+    cout << Nome << " esta realizando suas tarefas" <<endl;
+}
+
 
 
 void setName( string name){
@@ -78,6 +82,8 @@ void Requerer_promocao(){
 }
 };
 
+
+
 // herenca - classe filha
 class Desenvolvedor:public Funcionario{
 public:
@@ -95,6 +101,33 @@ void coda_em_qual_lang(){
     cout << getName() << " coda na linguagem " << Fav_prog_lang << endl;
 }
 
+void trabalhar(){
+    cout << getName() << " esta trabalhando e programando na linguagem " << Fav_prog_lang << endl;
+}
+
+};
+
+
+
+
+class Professor: public Funcionario{
+    public:
+    //atributos
+    string Materia;
+
+
+    //metodos
+    Professor(string nome, string empresa, int idade, string materia):Funcionario(nome,empresa,idade){
+        Materia = materia;
+    }
+
+    void Preparar_aula(){
+        cout<< getName() <<  " dara aula de " << Materia << endl;
+    }
+
+    void trabalhar(){
+    cout << getName() << " esta dando aula de  " << Materia << endl;
+}
 };
 
 int main(){
@@ -116,6 +149,20 @@ int main(){
 
     func2.setIdade(14);
     cout << func2.getIdade() << endl; */
+
+    Professor prof1 = Professor("Anaximandro","Escola pitagorica", 56,"Filosofia");
+    prof1.Requerer_promocao();
+    prof1.Preparar_aula();
+
+    dev1.trabalhar();
+    prof1.trabalhar();
+
+    Funcionario *e1=&dev1;
+    Funcionario *e2=&prof1;
+
+    e1->trabalhar();
+    e2->trabalhar();
+
     
 return 0;
 }
