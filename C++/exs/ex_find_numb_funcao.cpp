@@ -10,10 +10,7 @@ int maior_impar(int valor);
 
 int main(){
 
-int valor = 0;
-
-cout << "Digite o valor: " << endl;
-cin >> valor;
+int valor = 3;
 
 
 int maior = maior_impar(valor);
