@@ -12,10 +12,10 @@ int main(){
 
 vector <pair<int,int> > quantidade;
 
-int n = 3; // numero de intervalos
+size_t n = 3; // numero de intervalos
 bool existencia = false;
 
-vector<vector<int>> matriz ={{1,3},{4,6},{3,4}};
+vector<vector<int>> matriz = {{1,3},{4,6},{3,4}};
 
 for ( size_t i = 0; i < n; i++){
     for(size_t j = 0; j < 2; j++){
